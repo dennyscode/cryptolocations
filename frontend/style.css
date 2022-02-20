@@ -10,3 +10,52 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+
+.header {
+  background-color: rgb(124 135 56 / 40%);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: .5rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.header__headline {
+  margin: 0;
+  font-size: 40px;
+}
+
+.header__button {
+
+}
+
+.ol-zoom {
+  top: unset;
+  left: 0.5em;
+  bottom: 0.5em;
+}
+
+.tooltip__header {
+  display: flex;
+}
+
+.tooltip__infos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+.tooltip__cryptos {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #d1d1d1;
+}
+
+.tooltip__logo {
+  max-width: 150px;
+  max-height: 80px;
+}
