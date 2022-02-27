@@ -108,7 +108,8 @@ const loginUser = asyncHandler(async (req, res) => {
     if(user && (await bcrypt.compare(password, user.password))) {
 
         // Make sure the user has been verified
-        if (!user.isVerified) return res.status(401).send({ type: 'not-verified', msg: 'Your account has not been verified.' }); 
+        // WIP ACTIVATE FOR AUTHORIZATION !!!
+        // if (!user.isVerified) return res.status(401).send({ type: 'not-verified', msg: 'Your account has not been verified.' }); 
 
         res.json({
             _id: user.id,
