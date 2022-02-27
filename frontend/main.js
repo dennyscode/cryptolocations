@@ -13,6 +13,23 @@ import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {fromLonLat} from 'ol/proj';
 import {getVectorContext} from 'ol/render';
 
+// event listeners:
+
+const regButton = document.querySelector("[data-function=js-register]");
+if (regButton) {
+  regButton.addEventListener("click", function(event) {
+    console.log("reg clicked!")
+    createModal();
+  })
+}
+
+let createModal = function() {
+  const modalContainer = document.createElement("div");
+  modalContainer.setAttribute("class", "modal modal-open");
+  modalContainer.textContent = "huhuhuhu";
+  document.querySelector("body").appendChild(modalContainer);
+}
+
 const rasterLayer = new TileLayer({
   source: new OSM(),
 });
@@ -34,24 +51,7 @@ const rasterLayer = new TileLayer({
 //   // title="<em>Tooltip</em> <u>with</u> <b>HTML</b>",
 // });
 
-const iconStyle = new Style({
-  image: new Icon({
-    anchor: [0.5, 1.05],
-    offset: [0,0],
-    src: 'data/crypto_sm.png',
-    crossOrigin: '',
-    scale: [1, 1],
 
-    // rotation: Math.PI / 4,
-  }),
-  text: new Text({
-    text: 'FISH\nTEXT',
-    scale: [0, 0],
-    rotation: Math.PI / 4,
-    textAlign: 'center',
-    textBaseline: 'top',
-  }),
-});
 
 let i = 0;
 let j = 45;
@@ -82,7 +82,9 @@ rasterLayer.on('postrender', function (event) {
 // }, 1000);
 
 Window.cryptoLocations = {
+
   "shops": [],
+
   "onLoad":
     function(fn) {
       // see if DOM is already available
@@ -93,6 +95,39 @@ Window.cryptoLocations = {
           document.addEventListener("DOMContentLoaded", fn);
       }
     },
+
+  "iconStyle":
+    new Style({
+      image: new Icon({
+        anchor: [0.5, 1.05],
+        offset: [0,0],
+        color: "white",
+        src: 'data/crypto_sm.png',
+        crossOrigin: '',
+        scale: [1, 1],
+    
+        // rotation: Math.PI / 4,
+      }),
+      text: new Text({
+        text: 'FISH\nTEXT',
+        scale: [0, 0],
+        rotation: Math.PI / 4,
+        textAlign: 'center',
+        textBaseline: 'top',
+      }),
+    }),
+
+    "setIcon":
+      function(el) {
+        el.setStyle(function () {
+        // const x = Math.sin((i * Math.PI) / 180) * 3;
+        // const y = Math.sin((j * Math.PI) / 180) * 4;
+        // iconStyle.getImage().setScale([x, y]);
+        // iconStyle.getText().setScale([x, y]);
+          return Window.cryptoLocations.iconStyle;
+        });
+      },
+
   "createMap":
     function() {
       Window.cryptoLocations.map = new Map({
@@ -138,11 +173,15 @@ Window.cryptoLocations = {
     },
 
   "apiFetcher": 
-    function(source) {
-      fetch(source)
+    async function(source) {
+      const response = await fetch(source)
         .then(response => response.json())
         .then(console.log("THIS", this, self))
-        .then(data => Window.cryptoLocations.fetchLooper({"this": this, "data": data}));
+        .then(data => Window.cryptoLocations.fetchLooper({"this": this, "data": data}))
+
+      // waits until the request completes...
+      console.log(response);    
+      Window.cryptoLocations.setVectorLayer()
     },
 
   "fetchLooper":
@@ -152,9 +191,14 @@ Window.cryptoLocations = {
             input.this.createShopOnMap(el)
         })
     },
+
   "setVectorLayer":
     function() {
-      console.log(this);
+      console.log("setVectorLayer");
+      Window.cryptoLocations.shops.forEach(el => {
+        Window.cryptoLocations.setIcon(el)
+      })
+
       Window.cryptoLocations.vectorSource = new VectorSource({
         features: Window.cryptoLocations.shops,
       });
@@ -195,13 +239,53 @@ Window.cryptoLocations = {
         })
       );
     },
+
     "init":
       function() {
-        Window.cryptoLocations.createPopup();
-        Window.cryptoLocations.createMap();
-        Window.cryptoLocations.map.addOverlay(Window.cryptoLocations.setPopup);
+        function createMap(){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  Window.cryptoLocations.createPopup();
 
+                  Window.cryptoLocations.createMap();
+        
+                    const error = false;
+        
+                    if(!error){
+                        resolve();
+                    }
+                    else{
+                        reject('Error: Something went wrong!')
+                    }
+                }, 0);
+            })
+        }
+
+        function createOverlay(setPopup){
+          return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                Window.cryptoLocations.map.addOverlay(setPopup);
+      
+                  const error = false;
+      
+                  if(!error){
+                      resolve();
+                  }
+                  else{
+                      reject('Error: Something went wrong!')
+                  }
+              }, 2000);
+          })
       }
+        
+      async function init() {
+        await createMap();
+        await createOverlay(Window.cryptoLocations.setPopup);
+        Window.cryptoLocations.apiFetcher("http://localhost:5000/api/cryptoshops");
+      }
+      
+      init();
+    }()
 }
 
 Window.cryptoLocations.onLoad(Window.cryptoLocations.init)

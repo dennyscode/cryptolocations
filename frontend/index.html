@@ -22,12 +22,36 @@
     <div class="header">
       <h1 class="header__headline">CryptoLocations</h1>
       <div class="header__right">
-        <button class="header__button header__button--signup">Sign up your company</button>
-        <button class="header__button header__button--login">Login</button>
+        <button class="header__button header__button--signup btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-function="js-register">Sign up your company</button>
+        <button class="header__button header__button--login btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-function="js-login">Login</button>
       </div>
       
     </div>
     <div id="map" class="map"><div id="popup"></div></div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>

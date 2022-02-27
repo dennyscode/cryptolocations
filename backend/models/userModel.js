@@ -17,7 +17,16 @@ const userSchema = mongoose.Schema({
     website: {
         type: String,
         required: [true, 'Please add a website']
-    }
+    },
+    roles: [{
+        type: String,
+    }],
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    passwordResetToken: String,
+    passwordResetExpires: Date,
 },
 {
     timestamps: true

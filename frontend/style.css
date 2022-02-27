@@ -59,3 +59,11 @@ html, body {
   max-width: 150px;
   max-height: 80px;
 }
+
+.modal {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  height: 60%;
+  top: 20%;
+}
