@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const colors = require('colors')
@@ -20,6 +21,15 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/cryptoshops', require('./routes/cryptoshopRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+
+// Server Frontend
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../front-end/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'front-end', 'build', 'index.html')))
+} else {
+    app.get('/', (req, res) => res.send('Please set environment to production'))
+}
 
 app.use(errorHandler)
 

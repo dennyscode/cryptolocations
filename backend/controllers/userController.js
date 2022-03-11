@@ -243,5 +243,4 @@ module.exports = {
     getMe,
     confirmationPost,
     resendTokenPost
-
 }

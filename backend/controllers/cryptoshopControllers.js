@@ -32,10 +32,10 @@ const setCryptoshop = asyncHandler(async (req,res) => {
         res.status(400)
         throw new Error('Please add a text field') // Instead of: res.status(400).json({message: 'Please add a text field'})
     }
-    if(!req.body.shop) {
-        res.status(400)
-        throw new Error('Please add a shop') // Instead of: res.status(400).json({message: 'Please add a text field'})
-    }
+    // if(!req.body.shop) {
+    //     res.status(400)
+    //     throw new Error('Please add a shop') // Instead of: res.status(400).json({message: 'Please add a text field'})
+    // }
     console.log(req.body.text)
     const cryptoshop = await Cryptoshop.create({
         user: req.user.id,
@@ -57,16 +57,14 @@ const updateCryptoshop = asyncHandler(async (req, res) => {
         )
     }
 
-    const user = await User.findById(req.user.id)
-
     // check for user
-    if(!user) {
+    if(!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // make sure the login user matches the cryptoshop user
-    if(cryptoshop.user.toString() !== user.id) {
+    if(cryptoshop.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -92,16 +90,15 @@ const deleteCryptoshop = asyncHandler(async (req,res) => {
         )
     }
 
-    const user = await User.findById(req.user.id)
 
     // check for user
-    if(!user) {
+    if(!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // make sure the login user matches the cryptoshop user
-    if(cryptoshop.user.toString() !== user.id) {
+    if(cryptoshop.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
