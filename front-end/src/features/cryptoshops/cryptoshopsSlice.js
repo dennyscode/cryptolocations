@@ -29,13 +29,16 @@ export const createCryptoshop = createAsyncThunk(
 )
 
 // Get user cryptoshop
-export const getCryptoshop = createAsyncThunk(
-  'cryptoshops/getAll',
+export const getMyCryptoshops = createAsyncThunk(
+  'cryptoshops/my/',
   async (_, thunkAPI) => {
     try {
       console.log("GET ALL HAPPENING #1")
+      const userId = thunkAPI.getState().auth.user._id
       const token = thunkAPI.getState().auth.user.token
-      return await cryptoshopService.getCryptoshop(token)
+      console.log("userID:", userId)
+      
+      return await cryptoshopService.getMyCryptoshops({"token": token, "userId": userId})
     } catch (error) {
       const message =
         (error.response &&
@@ -136,6 +139,19 @@ export const cryptoshopsSlice = createSlice({
         state.cryptoshops = action.payload
       })
       .addCase(getCryptoshops.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(getMyCryptoshops.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getMyCryptoshops.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.cryptoshops = action.payload
+      })
+      .addCase(getMyCryptoshops.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

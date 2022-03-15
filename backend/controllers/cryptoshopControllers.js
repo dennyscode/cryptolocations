@@ -9,19 +9,23 @@ const User = require('../models/userModel')
 
 const getCryptoshops = asyncHandler(async (req,res) => {
     const cryptoshops = await Cryptoshop.find({}) // ({ user: req.user.id })
-
     res.status(200).json(cryptoshops)
 })
 
-// @desc    Get my cryptoshops
-// @route   GET /api/cryptoshops
+
+// @desc    Get users cryptoshops
+// @route   GET /api/cryptoshops/my
 // @access  Private
 
-const getMyCryptoshops = asyncHandler(async (req,res) => {
-    const cryptoshops = await Cryptoshop.find({ user: req.user.id }) // ({ user: req.user.id })
+const getMyCryptoshops = asyncHandler(async (req, res) => {
+    console.log(req.query.userid)
+    const cryptoshops = await Cryptoshop.find({user: req.query.userid}) // ({ user: req.user.id })
 
     res.status(200).json(cryptoshops)
 })
+
+
+
 
 // @desc    Set cryptoshop
 // @route   POST /api/cryptoshops/:id
@@ -53,8 +57,7 @@ const updateCryptoshop = asyncHandler(async (req, res) => {
     const cryptoshop = await Cryptoshop.findById(req.params.id)
     if(!cryptoshop) {
         res.status(400)
-        throw new Error('Cryptoshop not found'
-        )
+        throw new Error('Cryptoshop not found')
     }
 
     // check for user
@@ -107,8 +110,8 @@ const deleteCryptoshop = asyncHandler(async (req,res) => {
     res.status(200).json({id: req.params.id})})
 
 module.exports = {
-    getMyCryptoshops,
     getCryptoshops,
+    getMyCryptoshops,
     setCryptoshop,
     updateCryptoshop,
     deleteCryptoshop,

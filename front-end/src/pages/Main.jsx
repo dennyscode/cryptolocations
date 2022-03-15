@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import CryptoshopForm from '../components/CryptoshopForm'
 import CryptoshopItem from '../components/CryptoshopItem'
 import Spinner from '../components/Spinner'
-import { getMyCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
+import { getCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
 
-function Dashboard() {
+function Main() {
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
@@ -21,7 +21,7 @@ function Dashboard() {
       if(!user) {
         navigate('/login')
       }
-      dispatch(getMyCryptoshops())
+      dispatch(getCryptoshops())
 
       return  () => {
         dispatch(reset())
@@ -38,7 +38,7 @@ function Dashboard() {
     <> 
       <section className="heading">
         <h1>Welcome  { user && user.name }</h1>
-        <p>Shops Dashboard</p>
+        <p>Shops Main</p>
       </section>
       <CryptoshopForm />
 
@@ -57,4 +57,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Main
