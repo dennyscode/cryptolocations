@@ -8,12 +8,11 @@ const connectDB = require('./config/db')
 const port = process.env.PORT || 5000
 
 connectDB()
-console.log("connectDB finished")
-
 const app = express()
-console.log("express() started...")
+
 // fix cors-problem globally:
 app.use(cors())
+
 // alternatively, per-route
 // app.get('/foobar', cors(), (req, res) => res.send('foobar'))
 
