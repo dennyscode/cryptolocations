@@ -40,10 +40,17 @@ const setCryptoshop = asyncHandler(async (req,res) => {
     //     res.status(400)
     //     throw new Error('Please add a shop') // Instead of: res.status(400).json({message: 'Please add a text field'})
     // }
+    console.log("setCryptoShop:")
     console.log(req.body.text)
+    console.log(req.body)
+
     const cryptoshop = await Cryptoshop.create({
         user: req.user.id,
-        text: req.body.text
+        text: req.body.text,
+        shopsiteurl: req.body.url,
+        shoptype: req.body.field,
+        shopcoordinates: [req.body.xpos, req.body.ypos],
+        shoplogourl: req.body.logo,
     })
 
     res.status(200).json(cryptoshop)

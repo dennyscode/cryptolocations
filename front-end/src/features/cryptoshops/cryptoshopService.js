@@ -13,6 +13,7 @@ const createCryptoshop = async ( cryptoshopData, token) => {
         }
     }
 
+    console.log("From cryptoShopService.js - createCryptoshop:", cryptoshopData)
     const response = await axios.post(API_URL, cryptoshopData, config)
 
     return response.data

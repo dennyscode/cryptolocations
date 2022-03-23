@@ -1,0 +1,20 @@
+{
+"center": [-94.9065, 38.9884],
+"geojsonObject": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "kind": "county",
+          "name": "Wyandotte",
+          "state": "KS"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-94.6053, 39.1144]
+        }
+      }
+    ]
+  }
+}

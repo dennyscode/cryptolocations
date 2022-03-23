@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import CryptoshopNewForm from '../components/CryptoshopNewForm'
 import CryptoshopForm from '../components/CryptoshopForm'
 import CryptoshopItem from '../components/CryptoshopItem'
 import Spinner from '../components/Spinner'
 import { getMyCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
+import CryptoMap from '../components/CryptoMap'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -39,7 +41,8 @@ function Dashboard() {
         <h1>Welcome  { user && user.name }</h1>
         <p>Shops Dashboard</p>
       </section>
-      <CryptoshopForm />
+      <CryptoMap />
+      <CryptoshopNewForm />
 
       <section className='content'>
         {cryptoshops.length > 0 ? (

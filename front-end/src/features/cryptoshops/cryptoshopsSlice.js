@@ -14,6 +14,7 @@ export const createCryptoshop = createAsyncThunk(
   'cryptoshops/create',
   async (cryptoshopData, thunkAPI) => {
     try {
+      console.log("Data for Creation:", cryptoshopData)
       const token = thunkAPI.getState().auth.user.token
       return await cryptoshopService.createCryptoshop(cryptoshopData, token)
     } catch (error) {
