@@ -5,6 +5,9 @@ import * as ol from "ol";
 const MapOpenlayer = ({ children, zoom, center }) => {
   const mapRef = useRef();
   const [map, setMap] = useState(null);
+
+ map !== null ? console.log("map", map) : console.log("no map"); 
+ ol !== null ? console.log("ol", ol) : console.log("no ol");
   // on component mount
   useEffect(() => {
     let options = {

@@ -1,0 +1,73 @@
+{
+    "center": [-94.9065, 38.9884],
+    "geojsonObject": 
+    {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [13.359375, 51.6180165487737]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [22.32421875, 43.58039085560784],
+                        [42.01171875, 43.58039085560784],
+                        [42.01171875, 54.059387886623576],
+                        [22.32421875, 54.059387886623576],
+                        [22.32421875, 43.58039085560784]
+                    ]
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [-4.5703125, 46.07323062540835],
+                    [-15.1171875, 52.482780222078226],
+                    [-29.355468750000004, 46.800059446787316],
+                    [-27.0703125, 32.69486597787505],
+                    [-17.05078125, 33.137551192346145],
+                    [-3.8671874999999996, 43.45291889355465]
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [-14.765625, 63.6267446447533],
+                        [2.98828125, 65.44000165965534],
+                        [-6.15234375, 68.97416358340674],
+                        [-23.90625, 66.58321725728175],
+                        [-31.113281249999996, 60.58696734225869],
+                        [-14.765625, 63.6267446447533]
+                    ]
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Point",
+                "coordinates": [4.130859375, 49.03786794532644]
+            }
+        }]
+    },
+    "kansasCityLonLat": [-94.579228, 39.135386],
+    "blueSpringsLonLat": [-94.279851, 39.03412],
+    "markerImage24" : "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-24.png",
+    "markerImage32" : "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-32.png",
+    "markerImage64" : "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-47-64.png"
+    }
+    
