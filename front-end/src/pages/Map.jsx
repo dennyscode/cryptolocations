@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapOpenlayer from "../Map/MapOpenlayer";
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getMyCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
+import { getCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
 import Layers from '../Layers/Layers';
 import TileLayer from '../Layers/TileLayer'
 import Spinner from '../components/Spinner'
@@ -108,17 +108,33 @@ const Map = () => {
 
   const dispatch = useDispatch()
 
-  const { cryptoshops, isLoading, isError, message } = useSelector((state) => state.cryptoshops)
+  const { cryptoshops, isLoading, isSuccess, isError, message } = useSelector((state) => state.cryptoshops)
+  useEffect(() => {
+    if(isError) {
+      console.log(message)
+    }
+    // if(!user) {
+    //   navigate('/login')
+    // }
+    dispatch(getCryptoshops())
+
+    return  () => {
+      dispatch(reset())
+    }
+  }, []
+)
+
+console.log("Show Output:", cryptoshops)
 
   const {user} = useSelector((state) => state.auth )
     useEffect(() => {
       if(isError) {
         console.log(message)
       }
-      if(!user) {
-        navigate('/login')
-      }
-      dispatch(getMyCryptoshops())
+      // if(!user) {
+      //   navigate('/login')
+      // }
+      dispatch(getCryptoshops())
 
       return  () => {
         dispatch(reset())

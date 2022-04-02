@@ -57,9 +57,9 @@ export const getCryptoshops = createAsyncThunk(
   'cryptoshops/cryptoshops',
   async (_, thunkAPI) => {
     try {
-      console.log("GET ALL HAPPENING #2")
-      const token = thunkAPI.getState().auth.user.token
-      return await cryptoshopService.getCryptoshops(token)
+      const output = await cryptoshopService.getCryptoshops()
+      console.log("OUTPUT:", output)
+      return output
     } catch (error) {
       const message =
         (error.response &&
