@@ -1,15 +1,13 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard/Dashboard'
 import Register from './pages/Register'
 import Main from './pages/Main'
-import Map from './pages/Map'
 import Login from './pages/Login'
-import Header from './components/Header'
+import HeaderComponent from './components/Header/HeaderComponent'
 import MapWip from './pages/MapWip'
-import MapNewWip from './pages/MapNewWip'
-
+import CryptoMap from './components/CryptoMap'
 
 
 function App() {
@@ -17,13 +15,11 @@ function App() {
     <>
       <Router>
         {/* <div className='container'> */}
-          <Header />
+          <HeaderComponent />
           <Routes>
             <Route path='/' element={<Main />}></Route>
             <Route path='/dashboard' element={<Dashboard />}></Route>
-            <Route path='/map' element={<Map />}></Route>
-            <Route path='/wip' element={<MapWip />}></Route>
-            <Route path='/wip2' element={<MapNewWip />}></Route>
+            <Route path='/map' element={<MapWip />}></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/register' element={<Register />}></Route>
           </Routes>

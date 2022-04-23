@@ -1,17 +1,7 @@
-
-/* 
-######################################################
-####    BACKUP  (old)   ##############################
-######################################################
-*/
-
-
-
-
 import { useDispatch } from 'react-redux'
-import { deleteCryptoshop } from '../features/cryptoshops/cryptoshopsSlice'
+import { deleteCryptoshop } from '../../features/cryptoshops/cryptoshopsSlice'
 
-function CryptoshopItem({cryptoshop}) {
+function ListItemComponent({cryptoshop}) {
 
     const dispatch = useDispatch()
     console.log(cryptoshop)
@@ -31,4 +21,4 @@ function CryptoshopItem({cryptoshop}) {
     )
 }
 
-export default CryptoshopItem
+export default ListItemComponent

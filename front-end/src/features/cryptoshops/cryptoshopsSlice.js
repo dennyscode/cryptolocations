@@ -5,6 +5,7 @@ const initialState = {
   cryptoshops: [],
   isError: false,
   isSuccess: false,
+  isLoaded: false,
   isLoading: false,
   message: '',
 }
@@ -58,7 +59,7 @@ export const getCryptoshops = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const output = await cryptoshopService.getCryptoshops()
-      console.log("OUTPUT:", output)
+      // console.log("OUTPUT:", output)
       return output
     } catch (error) {
       const message =
@@ -71,25 +72,6 @@ export const getCryptoshops = createAsyncThunk(
     }
   }
 )
-
-// Delete user cryptoshop
-// export const deleteCryptoshop = createAsyncThunk(
-//   'cryptoshops/delete',
-//   async (id, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await cryptoshopService.deleteCryptoshop(id, token)
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-// )
 
 // Delete users cryptoshop
 export const deleteCryptoshop = createAsyncThunk(
@@ -114,7 +96,7 @@ export const cryptoshopsSlice = createSlice({
   name: 'cryptoshop',
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    resetCryptoshop: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -174,5 +156,5 @@ export const cryptoshopsSlice = createSlice({
   },
 })
 
-export const { reset } = cryptoshopsSlice.actions
+export const { resetCryptoshop } = cryptoshopsSlice.actions
 export default cryptoshopsSlice.reducer

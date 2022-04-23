@@ -2,9 +2,11 @@ import React from 'react'
 import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import {Link, useNavigate } from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
-import {logout, reset} from '../features/auth/authSlice'
+import {logout, reset} from '../../features/auth/authSlice'
+import { Header, HeaederItems, HeaderItem } from './Header.style'
+import PrimaryButtonComponent from '../Buttons/PrimaryButton/PrimaryButton.style'
 
-function Header() {
+function HeaderComponent() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { user } = useSelector((state) => state.auth)
@@ -15,34 +17,34 @@ function Header() {
     }
 
   return (
-    <header className="header">
+    <Header>
         <div className="logo">
-            <Link to='/'>Goalsetter</Link>
+            <Link to='/'>CryptoFinder</Link>
         </div>
-        <ul>
+        <HeaederItems>
             { user ? ( 
-                <li>
+                <HeaderItem>
                     <button className="btn" onClick={onLogout}>
                         <FaSignOutAlt/> Logout
                     </button>
-                </li>
+                </HeaderItem>
                 ) : (
                 <>
-                    <li>
+                    <HeaderItem>
                         <Link to='/login'>
                             <FaSignInAlt/> Login
                         </Link>
-                    </li>
-                    <li>
+                    </HeaderItem>
+                    <HeaderItem>
                         <Link to='/register'>
                             <FaUser/> Register
                         </Link>
-                    </li>
+                    </HeaderItem>
                 </>)
             }
-        </ul>
-    </header >
+        </HeaederItems>
+    </Header>
   )
 }
 
-export default Header
+export default HeaderComponent

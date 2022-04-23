@@ -1,0 +1,200 @@
+[{
+  "_id": {
+    "$oid": "6209fc762c58473f01c6e11f"
+  },
+  "name": "john",
+  "email": "john@test.de",
+  "password": "$2a$10$aXiXNSCVViC1uxqz98PqIujunlt.XUAkURuMTuAXNOZY8NBdpRk8K",
+  "website": "www.johnssite.de",
+  "createdAt": {
+    "$date": "2022-02-14T06:53:42.057Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-14T06:53:42.057Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62146933a4d9a2d794681cde"
+  },
+  "name": "tom",
+  "email": "tom@test.de",
+  "password": "$2a$10$wswIUjpizbko08nt8j.2uOnbKpjw0TblFZ0yOH2k9dVMUw1nujdRO",
+  "website": "www.toms.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-22T04:40:19.629Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-22T04:40:19.629Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "621727fedb4cfb5b86163aeb"
+  },
+  "name": "tim",
+  "email": "tim@test.de",
+  "password": "$2a$10$1BEdq39EjQI/684mzDNB5.HCLIyqFD8Y5d83.iikA4/He/eNyyOFi",
+  "website": "www.tim.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-24T06:38:54.925Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-24T06:38:54.925Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62172d00a063a4353a2fa89f"
+  },
+  "name": "ben",
+  "email": "ben@test.de",
+  "password": "$2a$10$QrE6MiYa7uTQ3DfUHAkQceB8aOIVm3/vNhmu8KO2EB0qpoh6hEify",
+  "website": "www.ben.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-24T07:00:16.086Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-24T07:00:16.086Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62187b5cd6599c17a4c19338"
+  },
+  "name": "benni",
+  "email": "benni@test.de",
+  "password": "$2a$10$pnFc56vvk03IKr7FmPY8tuIAaBeTL3XEibR7q5Hv7hxNfADtbnm42",
+  "website": "www.benni.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-25T06:46:52.609Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-25T06:46:52.609Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "621884cded0cf558e65ef46b"
+  },
+  "name": "denny",
+  "email": "denny@test.de",
+  "password": "$2a$10$KXm.tpgFKl7ZdFmZCpQh9OHf4Ni2FSxROmelkk2UBmXH8tSzoLyHe",
+  "website": "www.denny.de",
+  "roles": [],
+  "isVerified": true,
+  "createdAt": {
+    "$date": "2022-02-25T07:27:09.567Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-25T07:46:51.547Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62188576ed0cf558e65ef470"
+  },
+  "name": "dennis",
+  "email": "dennis@test.de",
+  "password": "$2a$10$7LZc1UWNS0DHPjYDNeWg2e.BRUrxBY3.E9HKvoDng67XZsuSZmAm2",
+  "website": "www.dennis.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-25T07:29:58.878Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-25T07:29:58.878Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6219b26d984d97a5f574fb32"
+  },
+  "name": "karl",
+  "email": "karl@test.de",
+  "password": "$2a$10$8DPX0KAu.aH0B4M7Y3lp3OHDlPX3aHmHxMFfx/P2R5EgeeAMGqAw2",
+  "website": "www.karl.de",
+  "roles": [],
+  "isVerified": true,
+  "createdAt": {
+    "$date": "2022-02-26T04:54:05.288Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-26T04:56:17.728Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "621adef30d88cea6f23b8dbd"
+  },
+  "name": "flo",
+  "email": "flo@test.de",
+  "password": "$2a$10$X5f.ZliODP9XlLX10rR5Z.fkncmvi/N.YRe4Nu1e/dYrb6N6I8xaO",
+  "website": "www.flo.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-27T02:16:19.661Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-27T02:16:19.661Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "621b2919230febdaf5cf4eef"
+  },
+  "name": "Jan",
+  "email": "jan@test.de",
+  "password": "$2a$10$om7Rplbk6uwq1maUnOWsEOzRaM71shsOo4HEeT.2ayVrpcwWVXco6",
+  "website": "http://www.jan.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-27T07:32:41.914Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-27T07:32:41.914Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "621b306cdd5d5c197e85c402"
+  },
+  "name": "Knut",
+  "email": "knut@test.de",
+  "password": "$2a$10$lPTYqZIZZ2FwwHUMkDSHEO9G1f3jpie2k0LpdgrTeIXvjK.Lie88i",
+  "website": "https://knut.de",
+  "roles": [],
+  "isVerified": false,
+  "createdAt": {
+    "$date": "2022-02-27T08:03:56.965Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-27T08:03:56.965Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62318171cd87483d11c0b490"
+  },
+  "name": "Denny",
+  "email": "denny@den.de",
+  "password": "$2a$10$6TpIMjVTFfnJ791l11uG5.y1uD2cPIS/cUeb3m1WpwhR3gD5ZNhwS",
+  "createdAt": {
+    "$date": "2022-03-16T06:19:29.091Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-16T06:19:29.091Z"
+  },
+  "__v": 0
+}]

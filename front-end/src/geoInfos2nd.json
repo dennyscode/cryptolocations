@@ -1,0 +1,138 @@
+{
+    "center": [-13.9065, 48.9884],
+    "geojsonObject": 
+    {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Best Place",
+              "Details": "BTC"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -8.5693359375,
+                -51.767839887322154
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Sushi Restaurant",
+              "Details": "XMR, BTC"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                21.00830078125,
+                89.79544988802771
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Repair",
+              "Details": "BNB"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                0.82275390625,
+                100.97948776108648
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Cinema",
+              "Details": "DOGE, BTC"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -13.07373046875,
+                -53.12040528310657
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Grocery",
+              "Details": "BTC; XMR"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -15.6005859375,
+                -51.699799849741936
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Coffee",
+              "Details": "BTC, XMR, DOGE"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -43.1201171874999996,
+                77.70976154266637
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Ship Cruise",
+              "Details": "BNB"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                29.57080078125,
+                80.51094351526262
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Clothing Inc",
+              "Details": "ETH"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                29.580078125,
+                -56.64414704199467
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Infos": "Pizzashop",
+              "Details": "BNB, ETH, BTC"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -15.009765625,
+                239.70718665682654
+              ]
+            }
+          }
+        ]
+      }
+}    
+
+
+

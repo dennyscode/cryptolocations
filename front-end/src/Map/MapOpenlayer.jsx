@@ -2,6 +2,18 @@ import React, { useRef, useState, useEffect } from "react"
 import MapContext from "./MapContext";
 import * as ol from "ol";
 import * as olSource from "ol/source";
+import {createStringXY} from 'ol/coordinate';
+import {defaults as defaultControls} from 'ol/control';
+import MousePosition from 'ol/control/MousePosition';
+
+const mousePositionControl = new MousePosition({
+  coordinateFormat: createStringXY(4),
+  projection: 'EPSG:4326',
+  // comment the following two lines to have the mouse position
+  // be placed within the map.
+  className: 'custom-mouse-position',
+  target: document.getElementById('mouse-position'),
+});
 
 const MapOpenlayer = ({ children, zoom, center }) => {
   const mapRef = useRef();
@@ -12,7 +24,7 @@ const MapOpenlayer = ({ children, zoom, center }) => {
 
  const tileOSM = new ol.Tile({
   source: new olSource.OSM(),
-  visible: true,
+  visible: false,
   title: 'OSMStandard'      
 })
 
@@ -21,7 +33,7 @@ const openStreetMapHumanitarian = new ol.Tile({
     url: 'https://a.tile.openstreetmap.de/${z}/${x}/${y}.png ',
     attributions: 'An adaptation of the "German" Mapnik style to the CartoCSS structure used by the international style.'
   }),
-  visible: false,
+  visible: true,
   title: 'OpenStreetMapStandard'      
 })
 
@@ -38,6 +50,7 @@ const tileStamenTerrain = new ol.Tile({
   // on component mount
   useEffect(() => {
     let options = {
+      controls: defaultControls().extend([mousePositionControl]),
       view: new ol.View({ zoom, center }),
       layers: [],
       controls: [],

@@ -1,18 +1,14 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import CryptoshopForm from '../components/CryptoshopForm'
-import CryptoshopItem from '../components/CryptoshopItem'
-import Spinner from '../components/Spinner'
-import { getCryptoshops, reset } from '../features/cryptoshops/cryptoshopsSlice'
+import ListItemComponent from '../components/List/ListItemComponent'
+import Spinner from '../components/Spinner/SpinnerComponent'
+import { getCryptoshops, resetCryptoshop } from '../features/cryptoshops/cryptoshopsSlice'
 
 function Main() {
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
-
   const { cryptoshops, isLoading, isError, message } = useSelector((state) => state.cryptoshops)
-
   const {user} = useSelector((state) => state.auth )
     useEffect(() => {
       if(isError) {
@@ -24,11 +20,10 @@ function Main() {
       dispatch(getCryptoshops())
 
       return  () => {
-        dispatch(reset())
+        dispatch(resetCryptoshop())
       }
     }, [user, navigate, isError, message, dispatch]
   )
-
 
   if(isLoading) {
     return <Spinner />
@@ -36,17 +31,11 @@ function Main() {
   
   return (
     <> 
-      <section className="heading">
-        <h1>Welcome  { user && user.name }</h1>
-        <p>Shops Main</p>
-      </section>
-      <CryptoshopForm />
-
       <section className='content'>
         {cryptoshops.length > 0 ? (
           <div className='cryptoshops'>
             {cryptoshops.map((cryptoshop) => (
-              <CryptoshopItem key={cryptoshop._id} cryptoshop={cryptoshop} />
+              <ListItemComponent key={cryptoshop._id} cryptoshop={cryptoshop} />
             ))}
           </div>
         ) : (

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createCryptoshop } from '../features/cryptoshops/cryptoshopsSlice'
+import { createCryptoshop } from '../../features/cryptoshops/cryptoshopsSlice'
+import { FormGroup, FormLabel, FormInput } from './Form.style'
+import { Section } from '../Layout/Section.style'
 
-function CryptoshopNewForm() {
+function FormComponent() {
 
     const [text, setText] = useState('')
     const [xpos, setXpos] = useState('')
@@ -35,13 +37,13 @@ function CryptoshopNewForm() {
 
 
   return (
-    <section className='form'>
+    <Section>
         <form onSubmit={onSubmit}>
-            <div className="form-group">
-                <label htmlFor="text">
+            <FormGroup className="form-group">
+                <FormLabel htmlFor="text">
                     Cryptoshop
-                </label>
-                <input 
+                </FormLabel>
+                <FormInput 
                     type="text" 
                     name="text" 
                     id="text" 
@@ -50,10 +52,10 @@ function CryptoshopNewForm() {
                         (e) => setText(e.target.value)
                         } 
                 />
-                <label htmlFor="text">
+                <FormLabel htmlFor="text">
                     Website
-                </label>
-                <input 
+                </FormLabel>
+                <FormInput 
                     type="url" 
                     name="url" 
                     id="url" 
@@ -62,10 +64,10 @@ function CryptoshopNewForm() {
                         (e) => setUrl(e.target.value)
                         } 
                 />
-                <label htmlFor="text">
+                <FormLabel htmlFor="text">
                     Logo
-                </label>
-                <input 
+                </FormLabel>
+                <FormInput 
                     type="url" 
                     name="logo" 
                     id="logo" 
@@ -74,10 +76,10 @@ function CryptoshopNewForm() {
                         (e) => setLogo(e.target.value)
                         } 
                 />
-                <label htmlFor="pos">
+                <FormLabel htmlFor="pos">
                     Position
-                </label>
-                <input 
+                </FormLabel>
+                <FormInput 
                     type="text" 
                     name="xpos" 
                     id="xpos" 
@@ -87,7 +89,7 @@ function CryptoshopNewForm() {
                         (e) => setXpos(e.target.value)
                         } 
                 />
-                <input 
+                <FormInput 
                     type="text" 
                     name="ypos" 
                     id="ypos" 
@@ -97,9 +99,9 @@ function CryptoshopNewForm() {
                         (e) => setYpos(e.target.value)
                         } 
                 />
-                <label htmlFor="field">
+                <FormLabel htmlFor="field">
                     Business field
-                </label>
+                </FormLabel>
                 <select 
                     name="field" 
                     id="field"
@@ -114,13 +116,11 @@ function CryptoshopNewForm() {
                     <option value="grocery">Grocery</option>
                     <option value="electronics">Electronics</option>
                 </select>
-            </div>
-            <div className="form-group">
                 <button className="btn btn-block" type="submit">Add Cryptoshop</button>
-            </div>
+            </FormGroup>
         </form>
-    </section>
+    </Section>
   )
 }
 
-export default CryptoshopNewForm
+export default FormComponent
