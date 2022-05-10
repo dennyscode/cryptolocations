@@ -3,8 +3,10 @@ import React from 'react'
 export const writeGeoJsonFiles = (shoplistObject) => {
     const _geoJsonRaw = {};
     return new Promise((resolve, reject) => {
-        console.log("starting writeGeoJsonFiles...")
+        console.log("starting writeGeoJsonFiles...", shoplistObject)
         const categoryList = Object.keys(shoplistObject);
+        console.log("map:", categoryList)
+
         categoryList.map(category => {
             _geoJsonRaw[category] = 
             { 
@@ -50,6 +52,7 @@ export const writeGeoJsonFiles = (shoplistObject) => {
             }
             })
         })
+        // console.log("fin:", _geoJsonRaw)
         resolve(_geoJsonRaw) //_geoJsonRaw
     });
 }

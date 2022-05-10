@@ -13,8 +13,8 @@ import Point from 'ol/geom/Point';
 let styles = {
     'MultiPolygon': new Style({
         stroke: new Stroke({
-        color: 'blue',
-        width: 1,
+            color: 'blue',
+            width: 1,
         }),
         fill: new Fill({
         color: 'rgba(0, 0, 255, 0.1)',
@@ -37,29 +37,32 @@ function CryptoMap() {
     const [showLayer2, setShowLayer2] = useState(true);
     
     return (
-        <MapOpenlayer center={fromLonLat(center)} zoom={zoom}>
-            <Layers>
-                <TileLayer
-                    source={osm()}
-                    zIndex={0}
-                />
-                {showLayer1 && (
-                <VectorLayer
-                    source={vector({})}
-                    features={feature1}
-                    style={styles.MultiPolygon}
-                />
-                )}
-                {showLayer2 && (
-                <VectorLayer
-                    source={vector({})}
-                    style={styles.MultiPolygon}
-                />
-                )}
-            </Layers>
-            <Controls>
-            </Controls>
-        </MapOpenlayer>
+        <>
+            {/* <div>CryptoMap</div> */}
+            <MapOpenlayer center={fromLonLat(center)} zoom={zoom}>
+                <Layers>
+                    <TileLayer
+                        source={osm()}
+                        zIndex={0}
+                    />
+                    {showLayer1 && (
+                    <VectorLayer
+                        source={vector({})}
+                        features={feature1}
+                        style={styles.MultiPolygon}
+                    />
+                    )}
+                    {showLayer2 && (
+                    <VectorLayer
+                        source={vector({})}
+                        style={styles.MultiPolygon}
+                    />
+                    )}
+                </Layers>
+                <Controls>
+                </Controls>
+            </MapOpenlayer>
+        </>
     )
 }
 

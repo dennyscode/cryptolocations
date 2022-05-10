@@ -21,4 +21,10 @@ export const PrimaryButton_Text = styled.span`
     margin-left: 8px;
 `
 
-
+export const PrimaryButtonCallForAttention = styled(PrimaryButton)`
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    width: 208px;
+    transform: translateX(-50%);
+`

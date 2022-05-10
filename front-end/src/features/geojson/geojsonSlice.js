@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import geojsonService from './geojsonService'
 
 const initialState = {
@@ -13,11 +13,10 @@ const initialState = {
 
 // Create new geojson
 export const createGeoJson = createAsyncThunk(
-  'geojsons/create',
+  'geojsons/createGeo',
   async (geojsonData, thunkAPI) => {
     try {
-      let output;
-      await geojsonService.testfunc(geojsonData).then((data) => { output = data })
+      let output = await geojsonService.testfunc(geojsonData)
       return output
     } catch (error) {
       const message =
@@ -57,7 +56,12 @@ export const geojsonsSlice = createSlice({
   reducers: {
     resetGeoJson: (state) => initialState,
 
-    get: (state) => {
+    createGeo: (state, action) => {
+      return "None"
+    },
+
+    getGeoJson: (state) => {
+      return state.geojsons
     },
 
     create: (state, action) => {
@@ -72,7 +76,6 @@ export const geojsonsSlice = createSlice({
         state.isCreating = false
         state.isCreated = true
         state.geojsons = action.payload
-
       })
       .addCase(createGeoJson.rejected, (state, action) => {
         state.isCreating = false

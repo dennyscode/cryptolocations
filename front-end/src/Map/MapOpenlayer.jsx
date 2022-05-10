@@ -5,7 +5,6 @@ import * as olSource from "ol/source";
 import {createStringXY} from 'ol/coordinate';
 import {defaults as defaultControls} from 'ol/control';
 import MousePosition from 'ol/control/MousePosition';
-
 const mousePositionControl = new MousePosition({
   coordinateFormat: createStringXY(4),
   projection: 'EPSG:4326',
@@ -61,11 +60,13 @@ const tileStamenTerrain = new ol.Tile({
     setMap(mapObject);
     return () => mapObject.setTarget(undefined);
   }, []);
+
   // zoom change handler
   useEffect(() => {
     if (!map) return;
     map.getView().setZoom(zoom);
   }, [zoom]);
+
   // center change handler
   useEffect(() => {
     if (!map) return;

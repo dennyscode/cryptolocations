@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import ListItemComponent from '../components/List/ListItemComponent'
 import Spinner from '../components/Spinner/SpinnerComponent'
 import { getCryptoshops, resetCryptoshop } from '../features/cryptoshops/cryptoshopsSlice'
+import ListComponent from '../components/List/ListComponent'
 
 function Main() {
   const navigate = useNavigate()
@@ -32,15 +33,7 @@ function Main() {
   return (
     <> 
       <section className='content'>
-        {cryptoshops.length > 0 ? (
-          <div className='cryptoshops'>
-            {cryptoshops.map((cryptoshop) => (
-              <ListItemComponent key={cryptoshop._id} cryptoshop={cryptoshop} />
-            ))}
-          </div>
-        ) : (
-          <h3>You have not set any goals</h3>
-        )}
+        <ListComponent inputList={cryptoshops}/>
       </section>
     </>
   )

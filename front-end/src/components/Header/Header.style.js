@@ -7,6 +7,10 @@ export const Header = styled.header`
     padding: 20px;
     border-bottom: 1px solid #e6e6e6;
     margin-bottom: 60px;
+    z-index: 1;
+    position: absolute;
+    background-color: white;
+    width: 100%;
 `
 
 export const HeaederItems = styled.ul`

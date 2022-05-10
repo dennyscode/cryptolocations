@@ -15,7 +15,6 @@ const getGeojsons = async () => {
 
 // Get all Geojsons
 const getMyGeojsons = async (input) => {
-    console.log("getMyGeojsons:")
     writeGeoJsonFiles(input)
 
     // Can also constructor from another URLSearchParams
@@ -35,9 +34,9 @@ const getMyGeojsons = async (input) => {
     // return response.data
 } 
 
-const cryptoshopService = {
+const geojsonService = {
     getMyGeojsons,
     testfunc
 }
 
-export default cryptoshopService
+export default geojsonService

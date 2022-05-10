@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createCryptoshop } from '../../features/cryptoshops/cryptoshopsSlice'
-import { FormGroup, FormLabel, FormInput } from './Form.style'
+import { Form, FormGroup, FormLabel, FormInput } from './Form.style'
 import { Section } from '../Layout/Section.style'
 
 function FormComponent() {
@@ -38,7 +38,7 @@ function FormComponent() {
 
   return (
     <Section>
-        <form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit}>
             <FormGroup className="form-group">
                 <FormLabel htmlFor="text">
                     Cryptoshop
@@ -118,7 +118,7 @@ function FormComponent() {
                 </select>
                 <button className="btn btn-block" type="submit">Add Cryptoshop</button>
             </FormGroup>
-        </form>
+        </Form>
     </Section>
   )
 }
